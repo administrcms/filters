@@ -1,0 +1,19 @@
+{
+    "name": "administr/listview-filters",
+    "require": {
+        "php": ">=5.5.9",
+        "laravel/framework": ">=5.2",
+        "administrcms/form": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Administr\\ListView\\Filters\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Miroslav Vitanov",
+            "email": "mvvitanov@gmail.com"
+        }
+    ]
+}
