@@ -2,13 +2,14 @@
 
 namespace Administr\ListView\Filters\Types;
 
+use Administr\Form\Field\DateTime as DateTimeField;
 use Carbon\Carbon;
 
 class DateTime extends Type
 {
     public function formField()
     {
-        // TODO return AbstractType
+        return new DateTimeField($this->field(), $this->label(), $this->options());
     }
 
     public function value()
