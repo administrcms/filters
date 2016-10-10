@@ -8,6 +8,8 @@ use Administr\ListView\Filters\Types\Type;
 
 /**
  * @method ListViewFilters text($name, $label, $options = null)
+ * @method ListViewFilters email($name, $label, $options = null)
+ * @method ListViewFilters select($name, $label, $options = null)
  * @method ListViewFilters date($name, $label, $options = null)
  * @method ListViewFilters time($name, $label, $options = null)
  * @method ListViewFilters datetime($name, $label, $options = null)
