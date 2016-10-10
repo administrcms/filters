@@ -41,7 +41,7 @@ class ListViewFilters
                 $builder->add($filter->formField());
             }
         }))
-            ->setView('administr.listview-filters::filters')
+            ->setView('administr/listview-filters::filters')
             ->render();
     }
 
