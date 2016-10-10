@@ -6,13 +6,13 @@ use Administr\Form\Field\Group;
 use Administr\ListView\Filters\Types\Type;
 
 /**
- * @method ListViewFilters text($field)
- * @method ListViewFilters date($field)
- * @method ListViewFilters time($field)
- * @method ListViewFilters datetime($field)
- * @method ListViewFilters dateBetween($field)
- * @method ListViewFilters timeBetween($field)
- * @method ListViewFilters boolean($field)
+ * @method ListViewFilters text($name, $label, $options = null)
+ * @method ListViewFilters date($name, $label, $options = null)
+ * @method ListViewFilters time($name, $label, $options = null)
+ * @method ListViewFilters datetime($name, $label, $options = null)
+ * @method ListViewFilters dateBetween($name, $label, $options = null)
+ * @method ListViewFilters timeBetween($name, $label, $options = null)
+ * @method ListViewFilters boolean($name, $label, $options = null)
  */
 class ListViewFilters
 {
