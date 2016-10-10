@@ -3,6 +3,7 @@
 namespace Administr\ListView\Filters;
 
 use Administr\Form\Field\Group;
+use Administr\Form\FormBuilder;
 use Administr\ListView\Filters\Types\Type;
 
 /**
@@ -35,9 +36,9 @@ class ListViewFilters
      */
     public function render()
     {
-        return (new Group('', '', function(Group $group) {
+        return (new Group('', '', function(FormBuilder $builder) {
             foreach($this->filters as $filter) {
-                $group->builder()->add($filter->formField());
+                $builder->add($filter->formField());
             }
         }))
             ->setView('administr.listview-filters::filters')
