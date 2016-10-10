@@ -18,7 +18,7 @@ class ListViewFilters
 {
     protected $filters = [];
 
-    public function get()
+    public function getData()
     {
         $filters = [];
 
