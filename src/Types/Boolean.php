@@ -10,8 +10,8 @@ class Boolean extends Type
     {
         return new RadioGroup($this->field(), $this->label(), function (RadioGroup $group) {
             $group
-                ->checkbox('да', ['value' => 1])
-                ->checkbox('не', ['value' => 0])
+                ->radio('да', ['value' => 1])
+                ->radio('не', ['value' => 0])
                 ;
         });
     }
