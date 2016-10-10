@@ -36,6 +36,10 @@ class ListViewFilters
      */
     public function render()
     {
+        if(count($this->filters) === 0) {
+            return null;
+        }
+
         return (new Group('', '', function(FormBuilder $builder) {
             foreach($this->filters as $filter) {
                 $builder->add($filter->formField());
