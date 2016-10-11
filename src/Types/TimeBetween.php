@@ -13,7 +13,7 @@ class TimeBetween extends DateBetween
             $builder->time("{$this->field()}_start", 'Начален час')
                 ->time("{$this->field()}_end", 'Краен час');
         }))
-            ->setView('administr.listview-filters::filters');
+            ->setView('administr/listview-filters::between');
     }
 
     public function value()

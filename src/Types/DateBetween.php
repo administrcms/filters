@@ -15,7 +15,7 @@ class DateBetween extends Type
                 ->date("{$this->field()}_start", 'Начална дата')
                 ->date("{$this->field()}_end", 'Крайна дата');
         }))
-            ->setView('administr.listview-filters::filters');;
+            ->setView('administr/listview-filters::between');;
     }
 
     public function value()
