@@ -3,6 +3,7 @@
 namespace Administr\ListView\Filters;
 
 use Administr\Form\Field\Group;
+use Administr\Form\Field\Submit;
 use Administr\Form\FormBuilder;
 use Administr\ListView\Filters\Types\Type;
 
@@ -38,9 +39,25 @@ class ListViewFilters
      */
     public function render()
     {
-        if(count($this->filters) === 0) {
+        if (count($this->filters) === 0) {
             return null;
         }
+
+        $page = request()->has('page') ? '?page=' . request('page') : null;
+        $clearUrl = url()->current() . $page;
+
+        if (! $filterBtn = config('administr.listview-filters.filterBtn') instanceof Submit) {
+            $filterBtn = new Submit(
+                config('administr.listview-filters.filterBtn.name'),
+                config('administr.listview-filters.filterBtn.label'),
+                config('administr.listview-filters.filterBtn.options')
+            );
+        }
+
+        $clearBtn = [
+            'label' => config('administr.listview-filters.clearBtn.label'),
+            'url' => $clearUrl,
+        ];
 
         return (new Group('', '', function(FormBuilder $builder) {
             foreach($this->filters as $filter) {
@@ -48,7 +65,11 @@ class ListViewFilters
             }
         }))
             ->setView('administr/listview-filters::filters')
-            ->render();
+            ->render([], [
+                'filterBtn' => $filterBtn,
+                'clearBtn' => $clearBtn,
+                'clearUrl' => $clearUrl,
+            ]);
     }
 
     /**

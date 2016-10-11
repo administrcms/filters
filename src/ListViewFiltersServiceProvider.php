@@ -12,9 +12,14 @@ class ListViewFiltersServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/Views' => resource_path('views/vendor/administr/listview-filters')
         ], 'views');
+
+        $this->publishes([
+            __DIR__ . '/Config/administr.listview-filters.php' => config_path('administr.listview-filters.php')
+        ], 'config');
     }
 
     public function register()
     {
+        $this->mergeConfigFrom(__DIR__ . '/Config/administr.listview-filters.php', 'administr.listview-filters');
     }
 }
