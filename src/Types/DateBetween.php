@@ -12,8 +12,8 @@ class DateBetween extends Type
     {
         return (new Group($this->field(), $this->label(), function(FormBuilder $builder) {
             $builder
-                ->date("{$this->field()}_start", 'Начална дата')
-                ->date("{$this->field()}_end", 'Крайна дата');
+                ->date("{$this->field()}_start", '', ['placeholder' => 'Начална дата'])
+                ->date("{$this->field()}_end", '', ['placeholder' => 'Крайна дата']);
         }))
             ->setView('administr/listview-filters::between');;
     }

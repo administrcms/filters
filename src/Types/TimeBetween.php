@@ -10,8 +10,9 @@ class TimeBetween extends DateBetween
     public function formField()
     {
         return (new Group($this->field(), $this->label(), function(FormBuilder $builder) {
-            $builder->time("{$this->field()}_start", 'Начален час')
-                ->time("{$this->field()}_end", 'Краен час');
+            $builder
+                ->time("{$this->field()}_start", '', ['placeholder' => 'Начален час'])
+                ->time("{$this->field()}_end", '', ['placeholder' => 'Краен час']);
         }))
             ->setView('administr/listview-filters::between');
     }
