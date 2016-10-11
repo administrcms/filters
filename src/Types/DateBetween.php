@@ -24,8 +24,8 @@ class DateBetween extends Type
         $end = "{$this->field}_end";
 
         return [
-            Carbon::parse($this->getFromRequest($start)),
-            Carbon::parse($this->getFromRequest($end)),
+            Carbon::parse($this->getFromRequest($start))->startOfDay(),
+            Carbon::parse($this->getFromRequest($end))->endOfDay(),
         ];
     }
 }
