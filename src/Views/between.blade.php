@@ -1,3 +1,3 @@
-<div class="administr-listview-filters-group">
+<div class="administr-filters-group">
     {!! $builder->render() !!}
 </div>

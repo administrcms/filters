@@ -1,24 +1,24 @@
 <?php
 
-namespace Administr\ListView\Filters;
+namespace Administr\Filters;
 
 use Administr\Form\Field\Group;
 use Administr\Form\Field\Submit;
 use Administr\Form\FormBuilder;
-use Administr\ListView\Filters\Types\Type;
+use Administr\Filters\Types\Type;
 
 /**
- * @method ListViewFilters text($name, $label, $options = null)
- * @method ListViewFilters email($name, $label, $options = null)
- * @method ListViewFilters select($name, $label, $options = null)
- * @method ListViewFilters date($name, $label, $options = null)
- * @method ListViewFilters time($name, $label, $options = null)
- * @method ListViewFilters datetime($name, $label, $options = null)
- * @method ListViewFilters dateBetween($name, $label, $options = null)
- * @method ListViewFilters timeBetween($name, $label, $options = null)
- * @method ListViewFilters boolean($name, $label, $options = null)
+ * @method Filters text($name, $label, $options = null)
+ * @method Filters email($name, $label, $options = null)
+ * @method Filters select($name, $label, $options = null)
+ * @method Filters date($name, $label, $options = null)
+ * @method Filters time($name, $label, $options = null)
+ * @method Filters datetime($name, $label, $options = null)
+ * @method Filters dateBetween($name, $label, $options = null)
+ * @method Filters timeBetween($name, $label, $options = null)
+ * @method Filters boolean($name, $label, $options = null)
  */
-class ListViewFilters
+class Filters
 {
     protected $filters = [];
 
@@ -46,16 +46,16 @@ class ListViewFilters
         $page = request()->has('page') ? '?page=' . request('page') : null;
         $clearUrl = url()->current() . $page;
 
-        if (! $filterBtn = config('administr.listview-filters.filterBtn') instanceof Submit) {
+        if (! $filterBtn = config('administr.filters.filterBtn') instanceof Submit) {
             $filterBtn = new Submit(
-                config('administr.listview-filters.filterBtn.name'),
-                config('administr.listview-filters.filterBtn.label'),
-                config('administr.listview-filters.filterBtn.options')
+                config('administr.filters.filterBtn.name'),
+                config('administr.filters.filterBtn.label'),
+                config('administr.filters.filterBtn.options')
             );
         }
 
         $clearBtn = [
-            'label' => config('administr.listview-filters.clearBtn.label'),
+            'label' => config('administr.filters.clearBtn.label'),
             'url' => $clearUrl,
         ];
 
@@ -64,7 +64,7 @@ class ListViewFilters
                 $builder->add($filter->formField());
             }
         }))
-            ->setView('administr/listview-filters::filters')
+            ->setView('administr/filters::filters')
             ->render([], [
                 'filterBtn' => $filterBtn,
                 'clearBtn' => $clearBtn,
@@ -84,10 +84,10 @@ class ListViewFilters
 
     public function __call($name, $args = [])
     {
-        $class = '\Administr\ListView\Filters\Types\\' . studly_case($name);
+        $class = '\Administr\Filters\Types\\' . studly_case($name);
 
         if(!class_exists($class)) {
-            $class = '\Administr\ListView\Filters\Types\Text';
+            $class = '\Administr\Filters\Types\Text';
         }
 
         if(count($args) === 2)

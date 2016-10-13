@@ -1,6 +1,6 @@
 <?php
 
-namespace Administr\ListView\Filters\Types;
+namespace Administr\Filters\Types;
 
 use Administr\Form\Field\Group;
 use Administr\Form\FormBuilder;
@@ -15,7 +15,7 @@ class DateBetween extends Type
                 ->date("{$this->field()}_start", '', ['placeholder' => 'Начална дата'])
                 ->date("{$this->field()}_end", '', ['placeholder' => 'Крайна дата']);
         }))
-            ->setView('administr/listview-filters::between');;
+            ->setView('administr/filters::between');;
     }
 
     public function value()

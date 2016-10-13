@@ -1,6 +1,6 @@
 <?php
 
-namespace Administr\ListView\Filters\Types;
+namespace Administr\Filters\Types;
 
 use Administr\Form\Field\DateTime as DateTimeField;
 use Carbon\Carbon;

@@ -1,4 +1,4 @@
-<div class="administr-listview-filters">
+<div class="administr-filters">
     {!! $builder->render() !!}
 
     {!! $filterBtn->render() !!}
