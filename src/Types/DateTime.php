@@ -14,6 +14,12 @@ class DateTime extends Type
 
     public function value()
     {
-        return Carbon::parse(parent::value());
+        $value = parent::value();
+
+        if(is_null($value)) {
+            return null;
+        }
+
+        return Carbon::parse($value);
     }
 }

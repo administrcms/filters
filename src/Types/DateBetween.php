@@ -20,12 +20,16 @@ class DateBetween extends Type
 
     public function value()
     {
-        $start = "{$this->field}_start";
-        $end = "{$this->field}_end";
+        $start = $this->getFromRequest("{$this->field}_start");
+        $end = $this->getFromRequest("{$this->field}_end");
+
+        if(is_null($start) || is_null($end)) {
+            return null;
+        }
 
         return [
-            Carbon::parse($this->getFromRequest($start))->startOfDay(),
-            Carbon::parse($this->getFromRequest($end))->endOfDay(),
+            Carbon::parse($start)->startOfDay(),
+            Carbon::parse($end)->endOfDay(),
         ];
     }
 }

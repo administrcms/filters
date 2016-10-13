@@ -18,6 +18,12 @@ class Boolean extends Type
 
     public function value()
     {
-        return (bool)parent::value();
+        $value = parent::value();
+
+        if(is_null($value)) {
+            return null;
+        }
+
+        return (bool)$value;
     }
 }
