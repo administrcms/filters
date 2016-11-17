@@ -1,8 +1,10 @@
 <div class="administr-filters">
-    {!! $builder->render() !!}
+    <form>
+        {!! $builder->render() !!}
 
-    {!! $filterBtn->render() !!}
-    <a href="{{ $clearBtn['url'] }}">
-        {{ $clearBtn['label'] }}
-    </a>
+        {!! $filterBtn->render() !!}
+        <a href="{{ $clearBtn['url'] }}">
+            {{ $clearBtn['label'] }}
+        </a>
+    </form>
 </div>
