@@ -57,7 +57,7 @@ abstract class Type
 
     protected function getFromRequest($field)
     {
-        return request("filters.{$field}");
+        return request($field);
     }
 
     /**
