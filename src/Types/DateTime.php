@@ -16,7 +16,7 @@ class DateTime extends Type
     {
         $value = parent::value();
 
-        if(is_null($value)) {
+        if(strlen($value) === 0) {
             return null;
         }
 

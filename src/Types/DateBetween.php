@@ -23,7 +23,7 @@ class DateBetween extends Type
         $start = $this->getFromRequest("{$this->field()}_start");
         $end = $this->getFromRequest("{$this->field()}_end");
 
-        if(is_null($start) || is_null($end)) {
+        if(strlen($start) === 0 || strlen($end) === 0) {
             return null;
         }
 
