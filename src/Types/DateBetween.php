@@ -20,8 +20,8 @@ class DateBetween extends Type
 
     public function value()
     {
-        $start = $this->getFromRequest("{$this->field}_start");
-        $end = $this->getFromRequest("{$this->field}_end");
+        $start = $this->getFromRequest("{$this->field()}_start");
+        $end = $this->getFromRequest("{$this->field()}_end");
 
         if(is_null($start) || is_null($end)) {
             return null;
