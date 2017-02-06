@@ -16,4 +16,19 @@ class TimeBetween extends DateBetween
         }))
             ->setView('administr/filters::between');
     }
+
+    public function value()
+    {
+        $start = $this->getFromRequest("{$this->field()}_start");
+        $end = $this->getFromRequest("{$this->field()}_end");
+
+        if(strlen($start) === 0 || strlen($end) === 0) {
+            return null;
+        }
+
+        return [
+            $start,
+            $end
+        ];
+    }
 }
