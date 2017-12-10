@@ -57,7 +57,7 @@ abstract class Type
 
     protected function getFromRequest($field)
     {
-        return request($field);
+        return request()->input($field);
     }
 
     /**
