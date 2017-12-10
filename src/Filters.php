@@ -95,6 +95,10 @@ class Filters
             $args[] = [];
         }
 
-        return $this->add(app($class, $args));
+        return $this->add(app($class, [
+            'field'   => $args[0],
+            'label'   => $args[1],
+            'options' => $args[2],
+        ]));
     }
 }
