@@ -26,9 +26,8 @@ class Filters
     {
         $filters = [];
 
-        foreach($this->filters as $field => $filter)
-        {
-            $filters[$field] = $filter->value();
+        foreach ($this->filters as $field => $filter) {
+            $filters[ $field ] = $filter->value();
         }
 
         return $filters;
@@ -46,7 +45,7 @@ class Filters
         $page = request()->has('page') ? '?page=' . request('page') : null;
         $clearUrl = url()->current() . $page;
 
-        if (! $filterBtn = config('administr.filters.filterBtn') instanceof Submit) {
+        if (!$filterBtn = config('administr.filters.filterBtn') instanceof Submit) {
             $filterBtn = new Submit(
                 config('administr.filters.filterBtn.name'),
                 config('administr.filters.filterBtn.label'),
@@ -56,19 +55,19 @@ class Filters
 
         $clearBtn = [
             'label' => config('administr.filters.clearBtn.label'),
-            'url' => $clearUrl,
+            'url'   => $clearUrl,
         ];
 
-        return (new Group('', '', function(FormBuilder $builder) {
-            foreach($this->filters as $filter) {
+        return (new Group('', '', function (FormBuilder $builder) {
+            foreach ($this->filters as $filter) {
                 $builder->add($filter->formField());
             }
         }))
             ->setView('administr/filters::filters')
             ->render([], [
                 'filterBtn' => $filterBtn,
-                'clearBtn' => $clearBtn,
-                'clearUrl' => $clearUrl,
+                'clearBtn'  => $clearBtn,
+                'clearUrl'  => $clearUrl,
             ]);
     }
 
@@ -78,7 +77,8 @@ class Filters
      */
     public function add(Type $filter)
     {
-        $this->filters[$filter->field()] = $filter;
+        $this->filters[ $filter->field() ] = $filter;
+
         return $this;
     }
 
@@ -86,12 +86,11 @@ class Filters
     {
         $class = '\Administr\Filters\Types\\' . studly_case($name);
 
-        if(!class_exists($class)) {
+        if (!class_exists($class)) {
             $class = '\Administr\Filters\Types\Text';
         }
 
-        if(count($args) === 2)
-        {
+        if (count($args) === 2) {
             $args[] = [];
         }
 
