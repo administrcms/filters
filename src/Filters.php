@@ -59,6 +59,8 @@ class Filters
         ];
 
         return (new Group('', '', function (FormBuilder $builder) {
+            $builder->dataSource($this->getData());
+            
             foreach ($this->filters as $filter) {
                 $builder->add($filter->formField());
             }
