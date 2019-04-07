@@ -7,7 +7,7 @@ use Administr\Form\FormBuilder;
 use Carbon\Carbon;
 use Illuminate\Support\Arr;
 
-class DateBetween extends Type
+class DateTimeBetween extends Type
 {
     public function formField()
     {
@@ -16,24 +16,20 @@ class DateBetween extends Type
             $end = Arr::get($this->options(), 'end', ['placeholder' => 'Крайна дата']);
 
             $builder
-                ->date("{$this->field()}_start", '', $start)
-                ->date("{$this->field()}_end", '', $end);
+                ->datetime("{$this->field()}_start", '', $start)
+                ->datetime("{$this->field()}_end", '', $end);
         }))
             ->setView('administr/filters::between');
     }
 
     public function value()
     {
-        $start = $this->getFromRequest("{$this->field()}_start");
-        $end = $this->getFromRequest("{$this->field()}_end");
+        $value = parent::value();
 
-        if(strlen($start) === 0 || strlen($end) === 0) {
+        if(strlen($value) === 0) {
             return null;
         }
 
-        return [
-            Carbon::parse($start)->startOfDay(),
-            Carbon::parse($end)->endOfDay(),
-        ];
+        return Carbon::parse($value);
     }
 }

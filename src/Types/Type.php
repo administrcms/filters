@@ -10,7 +10,7 @@ abstract class Type
     protected $label;
     protected $options;
 
-    public function __construct($field, $label, $options = null)
+    public function __construct($field, $label, $options = [])
     {
         $this->field = $field;
         $this->label = $label;
