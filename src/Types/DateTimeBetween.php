@@ -12,8 +12,8 @@ class DateTimeBetween extends Type
     public function formField()
     {
         return (new Group($this->field(), $this->label(), function(FormBuilder $builder) {
-            $start = Arr::get($this->options(), 'start', ['placeholder' => 'Начална дата']);
-            $end = Arr::get($this->options(), 'end', ['placeholder' => 'Крайна дата']);
+            $start = Arr::get($this->options(), 'start', ['placeholder' => 'Start date/time']);
+            $end = Arr::get($this->options(), 'end', ['placeholder' => 'End date/time']);
 
             $builder
                 ->datetime("{$this->field()}_start", '', $start)
