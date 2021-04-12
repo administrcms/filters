@@ -6,6 +6,7 @@ use Administr\Form\Field\Group;
 use Administr\Form\Field\Submit;
 use Administr\Form\FormBuilder;
 use Administr\Filters\Types\Type;
+use Illuminate\Support\Str;
 
 /**
  * @method Filters text($name, $label, $options = null)
