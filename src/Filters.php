@@ -86,7 +86,7 @@ class Filters
 
     public function __call($name, $args = [])
     {
-        $class = '\Administr\Filters\Types\\' . studly_case($name);
+        $class = '\Administr\Filters\Types\\' . Str::studly($name);
 
         if (!class_exists($class)) {
             $class = '\Administr\Filters\Types\Text';
